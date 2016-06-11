@@ -10,15 +10,36 @@ module.exports = function (app) {
     // sample api route
     app.get('/api/user', function (req, res) {
 
+//        var user = new User({
+//            email: "test.kmr@gmail.com",
+//            password: "test"
+//        });
+//        user.save(function (err, fluffy) {
+//            if (err) return console.error(err);
+//            console.log("User save success");
+//            res.send("Yaay !! Successs ... ");
+//        });
+        
+        User.find({email:"askikh@gmail.com"},function(err,records){
+            console.log(records);
+            
+            res.send(records[0].email + " : " + records[0].password);
+        })
+    });
+    
+    app.get('/api/save',function(req,res){
         var user = new User({
-            email: "test.kmr@gmail.com",
-            password: "test"
+            email: "sucheta@gmail.com",
+            password: "sucheta123"
         });
+        
         user.save(function (err, fluffy) {
             if (err) return console.error(err);
             console.log("User save success");
             res.send("Yaay !! Successs ... ");
         });
+        
+        
     });
 
     // route to handle creating goes here (app.post)
@@ -34,7 +55,7 @@ module.exports = function (app) {
     });
     app.use(function (req, res) {
             res.sendFile('index.html', {
-                root: './public/views'
+                root: './public'
             });
     });
 

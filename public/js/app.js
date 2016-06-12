@@ -13,7 +13,8 @@ angular.module("RideApp",['ngRoute'])
     })
     .when('/signup',{
         
-        template:"<h1>Ride Sharing App singup page</h1>"
+        templateUrl:'../views/signup-view.html',
+        controller:'signUpCtrl'
     })
     .when('/createride',{
         

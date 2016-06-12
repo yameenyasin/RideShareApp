@@ -1,6 +1,6 @@
 angular.module("RideApp")
 
-.controller("signUpCtrl",function($scope){
+.controller("signUpCtrl",function($scope,webservice,$location){
     
     $scope.isError = false;
     
@@ -10,7 +10,19 @@ angular.module("RideApp")
         
         if($scope.checkEmail(user.email) && $scope.checkPassword(user.password,user.confirmpassword)){
             
-            alert("I am going to save the user to db");
+            var userData = {
+                email:user.email,
+                password:user.password
+            }
+            webservice.signup(userData,function(response){
+                console.log(response);
+                $location.url("/login");
+            },function(err){
+                 console.log(err);
+                 $scope.isError = false;
+            });
+            
+            
         }else{
             $scope.isError = true;
         }

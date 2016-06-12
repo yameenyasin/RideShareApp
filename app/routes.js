@@ -27,10 +27,12 @@ module.exports = function (app) {
         })
     });
     
-    app.get('/api/save',function(req,res){
+    app.post('/api/save',function(req,res){
+        
+        console.log(req.body);
         var user = new User({
-            email: "sucheta@gmail.com",
-            password: "sucheta123"
+            email: req.body.email,
+            password: req.body.password
         });
         
         user.save(function (err, fluffy) {

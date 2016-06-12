@@ -8,7 +8,8 @@ angular.module("RideApp",['ngRoute'])
     })
     .when('/login',{
         
-        template:"<h1>Ride Sharing App Login page</h1>"
+        templateUrl:'../views/login-view.html',
+        controller:'loginCtrl'
     })
     .when('/signup',{
         

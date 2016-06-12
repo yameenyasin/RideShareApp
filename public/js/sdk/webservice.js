@@ -15,6 +15,20 @@ angular.module("RideApp")
             url:"/api/save",
             data:userdata
         }).then(callback,errcallback);
-    }
+    };
+    
+    /** For login. this will perform the login action
+     * @param: email and password an object habing email and password
+     */
+    
+    this.login = function(logindata, callback, errcallback){
+        
+        $http({            
+            method:"GET",
+            url:"/api/login",
+            params:logindata.email
+        }).then(callback,errcallback);
+    };
+    
     
 });

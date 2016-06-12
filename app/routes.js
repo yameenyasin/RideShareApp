@@ -8,23 +8,15 @@ module.exports = function (app) {
     // authentication routes
 
     // sample api route
-    app.get('/api/user', function (req, res) {
-
-//        var user = new User({
-//            email: "test.kmr@gmail.com",
-//            password: "test"
-//        });
-//        user.save(function (err, fluffy) {
-//            if (err) return console.error(err);
-//            console.log("User save success");
-//            res.send("Yaay !! Successs ... ");
-//        });
+    app.get('/api/login', function (req, res) {
         
-        User.find({email:"askikh@gmail.com"},function(err,records){
-            console.log(records);
-            
-            res.send(records[0].email + " : " + records[0].password);
-        })
+         console.log(req.params);
+         res.json({status:200});
+//        User.find({email:"askikh@gmail.com"},function(err,records){
+//            console.log(records);
+//            
+//            res.send(records[0].email + " : " + records[0].password);
+//        })
     });
     
     app.post('/api/save',function(req,res){

@@ -30,7 +30,7 @@ angular.module("RideApp")
     
     $scope.checkEmail = function(emailId){
         
-        if(emailId.length > 10)
+        if(emailId && emailId.length > 10)
             return true;
         else
             return false;

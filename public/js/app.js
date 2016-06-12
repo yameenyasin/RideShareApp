@@ -29,7 +29,13 @@ angular.module("RideApp",['ngRoute'])
         template:"<h1>Ride Sharing App Logout page</h1>"
     })
     .otherwise({
-        redirectTo:'/home'
+        redirectTo:'/login'
     })
     
+})
+
+.controller('mainCtrl',function($rootScope,$scope){
+    
+    // To check if user is authenticated
+    $rootScope.isAuthenticated = false;
 });

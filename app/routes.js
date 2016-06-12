@@ -10,7 +10,7 @@ module.exports = function (app) {
     // sample api route
     app.get('/api/login', function (req, res) {
         
-         console.log(req.params);
+         console.log(req.query);
          res.json({status:200});
 //        User.find({email:"askikh@gmail.com"},function(err,records){
 //            console.log(records);

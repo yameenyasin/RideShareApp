@@ -26,7 +26,7 @@ angular.module("RideApp")
         $http({            
             method:"GET",
             url:"/api/login",
-            params:logindata.email
+            params:logindata
         }).then(callback,errcallback);
     };
     

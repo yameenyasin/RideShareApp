@@ -1,4 +1,4 @@
-angular.module("RideApp",['ngRoute'])
+angular.module("RideApp",['ngRoute','google.places'])
 
 .config(function($routeProvider){
    
@@ -18,15 +18,16 @@ angular.module("RideApp",['ngRoute'])
     })
     .when('/createride',{
         
-        template:"<h1>Ride Sharing App Create Ride page</h1>"
+        templateUrl:'../views/createride-view.html',
+        controller:'createRideCtrl'
     })
     .when('/search',{
         
         template:"<h1>Ride Sharing App Search Ride page</h1>"
     })
     .when('/logout',{
-        
-        template:"<h1>Ride Sharing App Logout page</h1>"
+        controller:"logoutCtrl",
+        template:"<p>Please wait ... Logging out </p>"
     })
     .otherwise({
         redirectTo:'/login'

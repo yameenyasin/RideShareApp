@@ -9,12 +9,12 @@ angular.module("RideApp")
     
     this.signup = function(userdata, callback, errcallback){
         
-        $http({
-            
-            method:"POST",
-            url:"/api/save",
-            data:userdata
+       $http({
+            method:'POST',
+            params:userdata,
+            url:"/api/login"
         }).then(callback,errcallback);
+        
     };
     
     /** For login. this will perform the login action
@@ -27,6 +27,19 @@ angular.module("RideApp")
             method:"GET",
             url:"/api/login",
             params:logindata
+        }).then(callback,errcallback);
+    };
+    
+    /** For login. this will perform the login action
+     * @param: email and password an object habing email and password
+     */
+    
+    this.createRide = function(rideData, callback, errcallback){
+        
+        $http({            
+            method:"POST",
+            url:"/api/newride",
+            data:rideData
         }).then(callback,errcallback);
     };
     

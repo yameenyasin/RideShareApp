@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="alert alert-danger" role="alert" ng-if="isError">No Results Found</div>
+    <div class="alert alert-success" role="alert" ng-if="isSuccess">Your search returned {{searchCount}} results</div>
+
+    <div class="col-xs-12 col-sm-8 col-md-12">
+        <fieldset>
+            <h2>Enter the seacrh criteria</h2>
+            <hr class="colorgraph">
+
+            <!--            ride from and to address-->
+            <div class="form-group col-md-3">
+                <input name="fromAddress" type="text" id="fromAddress" class="form-control input-lg" placeholder="From Address" ng-model="ride.fromAddress" g-places-autocomplete>
+            </div>
+            <div class="form-group col-md-3">
+                <input name="toAddress" type="text" id="toAddress" class="form-control input-lg" placeholder="To Address" ng-model="ride.toAddress" g-places-autocomplete>
+            </div>
+
+            <!--ride date and time fields-->
+            <div class="form-group col-md-3">
+                <input name="rideDate" type="date" id="rideDate" class="form-control input-lg" placeholder="dd/mm/yyyy" ng-model="ride.rideDate">
+            </div>
+
+            <div class="form-group col-md-3">
+                <input type="button" name="SearchRide" value="Search Ride" class="btn btn-lg btn-success btn-block" ng-click="searchRide(ride);">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <fieldset>
+                    <hr class="colorgraph">
+                </fieldset>
+            </div>
+
+        </fieldset>
+        <!--</form>-->
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-12">
+
+        <table class="table table-hover">
+            
+            <thead>
+            
+                <td>From</td>
+                <td>To</td>
+                <td>Date of Journey</td>
+                <td>Type Of Car</td>
+                <td>Owner Details</td>
+                <td>Available Seats</td>
+                <td>Price</td>
+                <td>#</td>
+            
+            </thead>
+            
+            <tbody>
+            
+                <tr ng-repeat="item in searchResults">
+                
+                    <td>{{item.fromAddress}}</td>
+                    <td>{{item.toAddress}}</td>
+                    <td>{{item.rideDate}}</td>
+                    <td>{{item.carDetails}}</td>
+                    <td>{{item.ownerName}}</td>
+                    <td>{{item.avlSeats}}</td>
+                    <td>{{item.price}}</td>
+                    <td hidden>{{item._id}}</td>
+                    <td>
+                    
+                         <button class="btn btn-default btn-sccess" ng-click="doBooking(item);"> <span class="glyphicon glyphicon-plus-sign"></span></button>
+                    
+                    </td>
+                
+                
+                </tr>
+            
+            
+            </tbody>
+            
+            
+        </table>
+
+
+    </div>
+
+
+
+</div>

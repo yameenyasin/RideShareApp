@@ -12,5 +12,6 @@ module.exports = mongoose.model('rideTableModel', {
     totalCapacity : {type : String, default: ''},
     avlSeats : {type : String, default: ''},
     phoneNo : {type : String, default: ''},
-    carDetails : {type : String, default: ''}
+    carDetails : {type : String, default: ''},
+    userId:{type : String, default: ''}
 });

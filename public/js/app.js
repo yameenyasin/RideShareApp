@@ -1,4 +1,4 @@
-angular.module("RideApp",['ngRoute','google.places'])
+angular.module("RideApp",['ngRoute','google.places',"ngMap"])
 
 .config(function($routeProvider){
    
@@ -23,7 +23,8 @@ angular.module("RideApp",['ngRoute','google.places'])
     })
     .when('/search',{
         
-        template:"<h1>Ride Sharing App Search Ride page</h1>"
+        templateUrl:'../views/searchride-view.html',
+        controller:'searchRideCtrl'
     })
     .when('/logout',{
         controller:"logoutCtrl",
@@ -39,4 +40,5 @@ angular.module("RideApp",['ngRoute','google.places'])
     
     // To check if user is authenticated
     $rootScope.isAuthenticated = false;
+    $rootScope.loggedInUser = null;
 });

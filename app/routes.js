@@ -64,7 +64,8 @@ module.exports = function (app) {
             totalCapacity : req.body.totalCapacity,
             avlSeats : req.body.avlSeats,
             phoneNo : req.body.phoneNo,
-            carDetails : req.body.carDetails
+            carDetails : req.body.carDetails,
+            userId:req.body.userId
         });
         new_ride.save(function (err, fluffy) {
             if (err) return console.error(err);
@@ -79,18 +80,18 @@ module.exports = function (app) {
         
         console.log("Search Service Called");
         
-        var place_from = req.query.placeFrom;
-        var place_to = req.query.placeTo;
-        //var trip_date = req.query.tripDate;
+        var fromAddress = req.query.fromAddress;
+        var toAddress = req.query.toAddress;
+        var rideDate = req.query.rideDate;
         
         
-        Ride.find({place_from: place_from,place_to:place_to  }, function (err, docs) {
+        Ride.find({fromAddress: fromAddress,toAddress:toAddress,rideDate:rideDate }, function (err, docs) {
           if (err){
               console.log("error occured");
               return res.status(404).json({message:"Invalid Credentials"});
               
           }else if(docs.length === 0){
-              return res.status(205).json({message:"No matche found"});
+              return res.status(500).json({message:"No match found"});
           }
           else{
               console.log(docs);

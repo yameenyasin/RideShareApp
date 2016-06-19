@@ -43,5 +43,18 @@ angular.module("RideApp")
         }).then(callback,errcallback);
     };
     
+    /** For searching the ride
+     * @param: fromAddress, toAddress and rideDate
+     */
+    
+    this.searchRide = function(rideDetails, callback, errcallback){
+        
+        $http({            
+            method:"GET",
+            url:"/api/seacrhride",
+            params:rideDetails
+        }).then(callback,errcallback);
+    };
+    
     
 });

@@ -14,6 +14,8 @@ angular.module("RideApp")
         webservice.login(loginData,function(response){
             console.log("Login Success");
             $rootScope.isAuthenticated = true;
+            $rootScope.loggedInUser = response.data.data[0];
+            console.log($rootScope.loggedInUser);
             $scope.isError = false;
             $location.url('/home');
             
